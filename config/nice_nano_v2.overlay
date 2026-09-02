@@ -11,16 +11,18 @@
         label = "KSCAN";
         diode-direction = "col2row";
 
+        /* Đưa các chân row sang nhóm gpio0 hoàn toàn để hỗ trợ pull-down chuẩn xác */
         row-gpios
             = <&gpio0 20 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
             , <&gpio0 24 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
             ;
 
+        /* Các chân col dùng gpio0 và gpio1 dạng active high đơn thuần */
         col-gpios
-            = <&gpio1 6  GPIO_ACTIVE_HIGH>
-            , <&gpio0 22 GPIO_ACTIVE_HIGH>
-            , <&gpio1 0  GPIO_ACTIVE_HIGH>
+            = <&gpio0 22 GPIO_ACTIVE_HIGH>
             , <&gpio0 11 GPIO_ACTIVE_HIGH>
+            , <&gpio1 0  GPIO_ACTIVE_HIGH>
+            , <&gpio1 6  GPIO_ACTIVE_HIGH>
             ;
     };
 
