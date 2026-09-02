@@ -7,7 +7,7 @@
         zmk,encoder = &left_encoder;
     };
 
-    /* Khai báo Encoder EC11 nối vào chân gpio0 9 và gpio1 4 */
+    /* Khai báo Encoder EC11 */
     left_encoder: encoder_left {
         compatible = "alps,ec11";
         a-gpios = <&gpio0 9  (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
@@ -27,15 +27,15 @@
         diode-direction = "row2col";
 
         row-gpios
-            = <&gpio0 20 GPIO_ACTIVE_HIGH> /* Số 3 */
-            , <&gpio0 24 GPIO_ACTIVE_HIGH> /* Số 4 */
+            = <&gpio0 20 GPIO_ACTIVE_HIGH> /* Số 3 (Hàng 1) */
+            , <&gpio0 24 GPIO_ACTIVE_HIGH> /* Số 4 (Hàng 2) */
             ;
 
         col-gpios
-            = <&gpio1 6  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> /* Số 1 */
-            , <&gpio0 22 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> /* Số 2 */
-            , <&gpio1 0  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> /* Số 5 */
-            , <&gpio0 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> /* Số 6 */
+            = <&gpio1 6  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> /* Số 1 (Cột 1) */
+            , <&gpio0 22 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> /* Số 2 (Cột 2) */
+            , <&gpio1 0  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> /* Số 5 (Cột 3) */
+            , <&gpio0 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> /* Số 6 (Cột 4) */
             ;
     };
 
