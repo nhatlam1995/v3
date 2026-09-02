@@ -7,11 +7,11 @@
         zmk,encoder = &left_encoder;
     };
 
-    /* Khai báo Encoder EC11 nối vào gpio0 9 và gpio1 4 */
+    /* Khai báo Encoder chuẩn active low và kéo lên nguồn nội */
     left_encoder: encoder_left {
         compatible = "alps,ec11";
-        a-gpios = <&gpio0 9 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-        b-gpios = <&gpio1 4 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        a-gpios = <&gpio0 9  (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
+        b-gpios = <&gpio1 4  (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
         steps = <80>;
     };
 
