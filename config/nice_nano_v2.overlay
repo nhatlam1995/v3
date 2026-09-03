@@ -10,7 +10,7 @@
 
     left_encoder: encoder_left {
         compatible = "alps,ec11";
-        b-gpios = <&gpio0 29 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>; /* Đổi sang gpio0 29 */
+        b-gpios = <&gpio0 29 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
         a-gpios = <&gpio1 4 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
         steps = <80>; 
     };
@@ -49,16 +49,10 @@
     };
 };
 
-/ {
-    chosen {
-        zephyr,display = &oled;
-    };
-};
-
 &i2c0 {
     status = "okay";
-    compatible = "nordic,nrf-twi"; /* Dùng driver TWI chuẩn để tránh lỗi DMA lockup */
-    clock-frequency = <400000>;     /* Đẩy lên 400kHz chuẩn cho SSD1306 */
+    compatible = "nordic,nrf-twim";
+    clock-frequency = <100000>;
     pinctrl-0 = <&i2c0_default>;
     pinctrl-1 = <&i2c0_sleep>;
     pinctrl-names = "default", "sleep";
@@ -68,14 +62,12 @@
         reg = <0x3c>;
         width = <128>;
         height = <32>;
-        segment-offset = <2>;       /* Khắc phục lệch 2 cột đặc trưng của tấm nền 0.91 inch */
+        segment-offset = <0>;
         page-offset = <0>;
         display-offset = <0>;
-        multiplex-ratio = <31>;     /* Giữ 31 hoặc đổi thành <63> nếu bị dồn dòng */
+        multiplex-ratio = <31>;
         segment-remap;
-        com-invdir;
         com-sequential;
-        inversion-on;
         prechargep = <0x22>;
     };
 };
