@@ -66,10 +66,11 @@
         page-offset = <0>;
         display-offset = <0>;
         multiplex-ratio = <31>;
+        /* Điều chỉnh lại cờ quét để khớp chính xác với chip điều khiển trên tấm nền */
         segment-remap;
         com-invdir;
-        com-sequential;
-        prechargep = <0x22>;
+        no-col-swap;
+        prechargep = <0xF1>;
     };
 };
 
