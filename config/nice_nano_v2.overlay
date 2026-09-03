@@ -78,9 +78,11 @@
         segment-remap;
         com-invdir;
         com-sequential;
-        
-        /* Cấu hình chu kỳ nạp xả chuẩn cho dòng màn hình 0.91" */
-        prechargep = <0x22>;
+
+        /* BỘ BA ĐIỀU CHỈNH ĐIỆN ÁP & CHU KỲ NẠP XẢ - QUYẾT ĐỊNH XÓA SỌC */
+        prechargep = <0x22>;   /* Chu kỳ nạp pha 1 và pha 2 */
+        vcomh = <0x40>;        /* Mức điện áp Com Deselect */
+        vpp = <0x02>;          /* Sử dụng Bơm điện áp nội dung (Charge Pump) cấp nguồn tấm nền */
     };
 };
 
