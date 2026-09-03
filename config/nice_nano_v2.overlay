@@ -69,18 +69,15 @@
         compatible = "solomon,ssd1306fb";
         reg = <0x3c>;
         width = <128>;
-        height = <32>;
+        height = <32>;        /* Giữ nguyên chiều cao vật lý là 32 */
         segment-offset = <0>;
         page-offset = <0>;
         display-offset = <0>;
-        multiplex-ratio = <63>; /* Ép controller chạy ở chế độ 64 dòng để khớp với chip ẩn bên trong */
-        
+        multiplex-ratio = <63>; /* Ép controller chạy ở chế độ 64 dòng để xóa rác */
         segment-remap;
-        com-invdir;
-        com-sequential;
-        
-        /* Thay đổi quan trọng: Đưa prechargep về giá trị mặc định an toàn để driver tự tối ưu theo clock 100kHz */
-        prechargep = <0x22>; 
+        com-invdir;           /* Lật hướng quét COM để khớp khung hình */
+        com-sequential;       /* Quét tuần tự */
+        prechargep = <0x22>;
     };
 };
 
