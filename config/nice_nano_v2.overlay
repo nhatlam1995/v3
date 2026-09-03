@@ -3,16 +3,14 @@
 / {
     chosen {
         zmk,kscan = &kscan0;
-        zmk,matrix-transform = &default_transform;
-        zmk,encoder = &left_encoder;
+        zmk,matrix_transform = &default_transform;
     };
 
-    /* Khai báo Encoder EC11 */
     left_encoder: encoder_left {
         compatible = "alps,ec11";
-        a-gpios = <&gpio0 9  (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
-        b-gpios = <&gpio1 4  (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
-        steps = <80>;
+        b-gpios = <&gpio0 9 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>; 
+        a-gpios = <&gpio1 4 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        steps = <80>; 
     };
 
     sensors {
@@ -23,19 +21,18 @@
 
     kscan0: kscan_0 {
         compatible = "zmk,kscan-gpio-matrix";
-        label = "KSCAN";
-        diode-direction = "row2col";
+        diode-direction = "col2row";
 
         row-gpios
-            = <&gpio1 6 GPIO_ACTIVE_HIGH> /* Số 3 (Hàng 1) */
-            , <&gpio0 22 GPIO_ACTIVE_HIGH> /* Số 4 (Hàng 2) */
+            = <&gpio1 6 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&gpio0 22 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
             ;
 
         col-gpios
-            = <&gpio0 20  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> /* Số 1 (Cột 1) */
-            , <&gpio0 24 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> /* Số 2 (Cột 2) */
-            , <&gpio1 0  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> /* Số 5 (Cột 3) */
-            , <&gpio0 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> /* Số 6 (Cột 4) */
+            = <&gpio0 20  GPIO_ACTIVE_HIGH>
+            , <&gpio0 24  GPIO_ACTIVE_HIGH>
+            , <&gpio1 0 GPIO_ACTIVE_HIGH>
+            , <&gpio0 11 GPIO_ACTIVE_HIGH>
             ;
     };
 
