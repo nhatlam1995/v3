@@ -54,11 +54,12 @@
         zephyr,display = &oled;
     };
 };
-
 &i2c0 {
     status = "okay";
     compatible = "nordic,nrf-twi";
-    clock-frequency = <100000>; 
+    
+    /* Hạ xung nhịp xuống 10kHz để triệt tiêu hoàn toàn độ trễ điện dung của dây 9cm */
+    clock-frequency = <10000>; 
     pinctrl-0 = <&i2c0_default>;
     pinctrl-1 = <&i2c0_sleep>;
     pinctrl-names = "default", "sleep";
@@ -73,12 +74,9 @@
         display-offset = <0>;
         multiplex-ratio = <31>;
         
-        /* Cấu hình căn chỉnh dòng quét chuẩn cho tấm nền 0.91 inch */
         segment-remap;
         com-invdir;
         com-sequential;
-        
-        /* Ép chu kỳ nạp xả về mức tối đa để làm mịn hạt màn hình */
         prechargep = <0xf1>; 
     };
 };
