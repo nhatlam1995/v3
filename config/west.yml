@@ -5,14 +5,13 @@ manifest:
     - name: zmkfirmware
       url-base: https://github.com
     - name: mctechnology17
-      url-base: https://github.com
+      url-base: https://github.com/mctechnology17
   projects:
     - name: zmk
       remote: zmkfirmware
       import: app/west.yml
     - name: zmk-oled-brightness
       remote: mctechnology17
-      url: https://github.com/mctechnology17/zmk-oled-brightness
       revision: main
   self:
       path: config
