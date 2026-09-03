@@ -74,6 +74,8 @@
         multiplex-ratio = <31>;
         segment-remap;
         com-invdir;
+        /* Bổ sung dòng này để sửa lỗi hiển thị chấm lung tung / sọc màn */
+        com-sequential;
         prechargep = <0x22>;
     };
 };
