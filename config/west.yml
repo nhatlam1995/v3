@@ -1,12 +1,11 @@
 manifest:
-  defaults:
-    revision: v0.3
-  remotes:
-    - name: zmkfirmware
-      url-base: https://github.com
-  projects:
-    - name: zmk
-      remote: zmkfirmware
-      import: app/west.yml
   self:
     path: config
+  projects:
+    - name: zmk-oled-brightness
+      remote: mctechnology17
+      url: https://github.com/mctechnology17/zmk-oled-brightness
+      revision: main
+  remotes:
+    - name: mctechnology17
+      url-base: https://github.com/mctechnology17
