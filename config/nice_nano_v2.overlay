@@ -60,14 +60,14 @@
     compatible = "nordic,nrf-twim"; /* Sử dụng driver TWIM có DMA để truyền dữ liệu đồ họa mượt hơn */
     
     /* Trả về 100kHz để vượt qua bộ kiểm tra BUILD_ASSERT của Zephyr */
-    clock-frequency = <100000>; 
+    clock-frequency = <400000>; 
     pinctrl-0 = <&i2c0_default>;
     pinctrl-1 = <&i2c0_sleep>;
     pinctrl-names = "default", "sleep";
 
     oled: ssd1306@3c {
         compatible = "solomon,ssd1306fb";
-        reg = <0x3D>;
+        reg = <0x3c>;
         width = <128>;
         height = <32>;
         segment-offset = <0>;
