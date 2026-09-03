@@ -74,8 +74,9 @@
 &pinctrl {
     i2c0_default: i2c0_default {
         group1 {
-            psels = <NRF_PSEL(TWIM_SDA, 0, 2)>,  /* Đổi SDA sang P0.02 */
-                    <NRF_PSEL(TWIM_SCL, 1, 11)>; /* SCL giữ nguyên ở P1.11 */
+            psels = <NRF_PSEL(TWIM_SDA, 0, 2)>,
+                    <NRF_PSEL(TWIM_SCL, 1, 11)>;
+            bias-pull-up; /* Bật điện trở kéo nội chống treo bus I2C */
         };
     };
 
