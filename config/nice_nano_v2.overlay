@@ -49,6 +49,12 @@
     };
 };
 
+{
+    chosen {
+        zephyr,display = &oled;
+    };
+};
+
 &i2c0 {
     status = "okay";
     compatible = "nordic,nrf-twi";
