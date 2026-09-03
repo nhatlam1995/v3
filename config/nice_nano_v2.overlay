@@ -49,22 +49,21 @@
     };
 };
 
-/* Khai báo I2C và Màn hình OLED SSD1306 */
-&i2c2 {
+/* Cấu hình I2C0 cho màn hình OLED với SDA = P0.10 và SCL = P1.11 */
+&i2c0 {
     status = "okay";
-    compatible = "nordic,nrf-twi";
-    sda-pin = <10>; /* Đổi thành chân SDA bác thực tế nối */
-    scl-pin = <43>; /* Đổi thành chân SCL bác thực tế nối */
+    sda-gpios = <&gpio0 10 (GPIO_ACTIVE_HIGH)>;
+    scl-gpios = <&gpio1 11 (GPIO_ACTIVE_HIGH)>;
 
     oled: ssd1306@3c {
         compatible = "solomon,ssd1306fb";
         reg = <0x3c>;
         width = <128>;
-        height = <32>; /* Đổi thành 64 nếu dùng màn 128x64 */
+        height = <32>; /* Đổi thành 64 nếu màn hình của bác là loại 128x64 */
         segment-offset = <0>;
         page-offset = <0>;
         display-offset = <0>;
-        multiplex-ratio = <31>; /* Đổi thành 63 nếu dùng màn 128x64 */
+        multiplex-ratio = <31>; /* Đổi thành 63 nếu màn hình của bác là loại 128x64 */
         segment-remap;
         com-invdir;
         com-sequential;
