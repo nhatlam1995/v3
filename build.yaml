@@ -1,4 +1,4 @@
 ---
 include:
   - board: nice_nano_v2
-    shield: nice_nano_v2 nice_oled
+    shield: nice_nano_v2 oled_adapter_pro_micro_128x32
