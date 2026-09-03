@@ -49,11 +49,11 @@
     };
 };
 
-/* Cấu hình I2C0 cho màn hình OLED với SDA = P0.10 và SCL = P1.11 */
 &i2c0 {
     status = "okay";
-    sda-gpios = <&gpio0 10 (GPIO_ACTIVE_HIGH)>;
-    scl-gpios = <&gpio1 11 (GPIO_ACTIVE_HIGH)>;
+    compatible = "nordic,nrf-twi";
+    sda-pin = <10>; /* P0.10 */
+    scl-pin = <43>; /* P1.11 (tính theo công thức base 32 của nRF: 32 + 11 = 43) */
 
     oled: ssd1306@3c {
         compatible = "solomon,ssd1306fb";
