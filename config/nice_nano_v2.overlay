@@ -58,7 +58,7 @@
 &i2c0 {
     status = "okay";
     compatible = "nordic,nrf-twi";
-    clock-frequency = <100000>; /* Hạ tốc độ xuống 100kHz để chống nhiễu tín hiệu dây dẫn */
+    clock-frequency = <100000>; 
     pinctrl-0 = <&i2c0_default>;
     pinctrl-1 = <&i2c0_sleep>;
     pinctrl-names = "default", "sleep";
@@ -68,21 +68,18 @@
         reg = <0x3c>;
         width = <128>;
         height = <32>;
-        
-        /* Thay đổi quan trọng: Dịch chuyển rìa màn hình sang 4 cột để sửa lỗi nhòe chấm */
-        segment-offset = <4>; 
+        segment-offset = <0>;
         page-offset = <0>;
         display-offset = <0>;
         multiplex-ratio = <31>;
         
+        /* Cấu hình căn chỉnh dòng quét chuẩn cho tấm nền 0.91 inch */
         segment-remap;
         com-invdir;
         com-sequential;
-
-        /* BỘ BA ĐIỀU CHỈNH ĐIỆN ÁP & CHU KỲ NẠP XẢ - QUYẾT ĐỊNH XÓA SỌC */
-        prechargep = <0x22>;   /* Chu kỳ nạp pha 1 và pha 2 */
-        vcomh = <0x40>;        /* Mức điện áp Com Deselect */
-        vpp = <0x02>;          /* Sử dụng Bơm điện áp nội dung (Charge Pump) cấp nguồn tấm nền */
+        
+        /* Ép chu kỳ nạp xả về mức tối đa để làm mịn hạt màn hình */
+        prechargep = <0xf1>; 
     };
 };
 
@@ -91,7 +88,7 @@
         group1 {
             psels = <NRF_PSEL(TWIM_SDA, 0, 2)>,
                     <NRF_PSEL(TWIM_SCL, 1, 11)>;
-            bias-pull-up; /* Bật điện trở kéo nội chống treo bus I2C */
+            bias-pull-up;
         };
     };
 
