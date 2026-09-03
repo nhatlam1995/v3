@@ -73,13 +73,10 @@
         display-offset = <0>;
         multiplex-ratio = <31>;
         
-        /* Cấu hình chuẩn hóa chế độ Alternative không gây lỗi build */
-        segment-remap;
-        com-invdir;
-        /* Không ghi com-sequential; ở đây để ép màn hình chạy Alternative */
-        
+        /* Cấu hình đảo ngược dòng quét khuyên dùng cho màn hình nhiễu */
         prechargep = <0x22>;
     };
+
 
 
 };
