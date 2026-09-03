@@ -4,14 +4,9 @@ manifest:
   remotes:
     - name: zmkfirmware
       url-base: https://github.com
-    - name: mctechnology17
-      url-base: https://github.com
   projects:
     - name: zmk
       remote: zmkfirmware
       import: app/west.yml
-    - name: zmk-nice-oled
-      remote: mctechnology17
-      revision: zmk-v2.5  # <--- Đổi từ main thành zmk-v2.5 ở đây
   self:
     path: config
