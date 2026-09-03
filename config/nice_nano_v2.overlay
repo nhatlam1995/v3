@@ -73,13 +73,14 @@
         display-offset = <0>;
         multiplex-ratio = <31>;
         
-        /* Cấu hình thử nghiệm phương án A */
+        /* Cấu hình chuẩn hóa chế độ Alternative không gây lỗi build */
         segment-remap;
         com-invdir;
-        com-alternative;  /* Đổi sang chế độ xen kẽ */
+        /* Không ghi com-sequential; ở đây để ép màn hình chạy Alternative */
         
         prechargep = <0x22>;
     };
+
 
 };
 
