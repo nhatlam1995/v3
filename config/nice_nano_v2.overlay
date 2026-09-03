@@ -71,10 +71,12 @@
         segment-offset = <0>;
         page-offset = <0>;
         display-offset = <0>;
-        multiplex-ratio = <31>;     /* Chuẩn tuyệt đối cho màn hình cao 32 dòng */
+        multiplex-ratio = <31>;     /* Hoặc 63 tùy lô phần cứng */
         segment-remap;
         com-sequential;
         prechargep = <0x22>;
+        
+        inversion-on;               /* Thay thế cấu hình cũ từ Kconfig */
     };
 };
 
