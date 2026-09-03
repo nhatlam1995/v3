@@ -68,17 +68,20 @@
         reg = <0x3c>;
         width = <128>;
         height = <32>;
-        segment-offset = <0>;
+        
+        /* Thay đổi quan trọng: Dịch chuyển rìa màn hình sang 4 cột để sửa lỗi nhòe chấm */
+        segment-offset = <4>; 
         page-offset = <0>;
         display-offset = <0>;
         multiplex-ratio = <31>;
         
-        /* Cấu hình đảo ngược dòng quét khuyên dùng cho màn hình nhiễu */
+        segment-remap;
+        com-invdir;
+        com-sequential;
+        
+        /* Cấu hình chu kỳ nạp xả chuẩn cho dòng màn hình 0.91" */
         prechargep = <0x22>;
     };
-
-
-
 };
 
 &pinctrl {
