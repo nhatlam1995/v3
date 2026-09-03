@@ -10,7 +10,7 @@
 
     left_encoder: encoder_left {
         compatible = "alps,ec11";
-        b-gpios = <&gpio0 9 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>; 
+        b-gpios = <&gpio0 29 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>; /* Đổi sang gpio0 29 */
         a-gpios = <&gpio1 4 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
         steps = <80>; 
     };
@@ -74,14 +74,14 @@
 &pinctrl {
     i2c0_default: i2c0_default {
         group1 {
-            psels = <NRF_PSEL(TWIM_SDA, 0, 10)>,
-                    <NRF_PSEL(TWIM_SCL, 1, 11)>;
+            psels = <NRF_PSEL(TWIM_SDA, 0, 2)>,  /* Đổi SDA sang P0.02 */
+                    <NRF_PSEL(TWIM_SCL, 1, 11)>; /* SCL giữ nguyên ở P1.11 */
         };
     };
 
     i2c0_sleep: i2c0_sleep {
         group1 {
-            psels = <NRF_PSEL(TWIM_SDA, 0, 10)>,
+            psels = <NRF_PSEL(TWIM_SDA, 0, 2)>,
                     <NRF_PSEL(TWIM_SCL, 1, 11)>;
             low-power-enable;
         };
