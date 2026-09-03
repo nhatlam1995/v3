@@ -72,12 +72,15 @@
         page-offset = <0>;
         display-offset = <0>;
         multiplex-ratio = <31>;
+        
+        /* Cấu hình thử nghiệm phương án A */
         segment-remap;
         com-invdir;
-        /* Bổ sung dòng này để sửa lỗi hiển thị chấm lung tung / sọc màn */
-        com-sequential;
+        com-alternative;  /* Đổi sang chế độ xen kẽ */
+        
         prechargep = <0x22>;
     };
+
 };
 
 &pinctrl {
