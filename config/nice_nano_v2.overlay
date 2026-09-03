@@ -71,12 +71,10 @@
         segment-offset = <0>;
         page-offset = <0>;
         display-offset = <0>;
-        multiplex-ratio = <31>;     /* Hoặc 63 tùy lô phần cứng */
+        multiplex-ratio = <63>;     /* Ép quét 64 dòng để khớp bộ nhớ đệm */
         segment-remap;
-        com-sequential;
+        com-invdir;                 /* Lật hướng quét COM */
         prechargep = <0x22>;
-        
-        inversion-on;               /* Thay thế cấu hình cũ từ Kconfig */
     };
 };
 
