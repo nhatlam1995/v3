@@ -5,6 +5,7 @@
         zmk,kscan = &kscan0;
         zmk,matrix_transform = &default_transform;
         zmk,display = &oled;
+        zephyr,display = &oled;
     };
 
     left_encoder: encoder_left {
@@ -50,7 +51,6 @@
 
 &i2c0 {
     status = "okay";
-    compatible = "nordic,nrf-twi";
     pinctrl-0 = <&i2c0_default>;
     pinctrl-1 = <&i2c0_sleep>;
     pinctrl-names = "default", "sleep";
