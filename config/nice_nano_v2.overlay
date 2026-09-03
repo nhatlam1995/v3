@@ -68,12 +68,14 @@
         reg = <0x3c>;
         width = <128>;
         height = <32>;
-        segment-offset = <0>;
+        segment-offset = <2>;       /* Khắc phục lệch 2 cột đặc trưng của tấm nền 0.91 inch */
         page-offset = <0>;
         display-offset = <0>;
-        multiplex-ratio = <63>;     /* Ép quét 64 dòng để khớp bộ nhớ đệm */
+        multiplex-ratio = <31>;     /* Giữ 31 hoặc đổi thành <63> nếu bị dồn dòng */
         segment-remap;
-        com-invdir;                 /* Lật hướng quét COM */
+        com-invdir;
+        com-sequential;
+        inversion-on;
         prechargep = <0x22>;
     };
 };
