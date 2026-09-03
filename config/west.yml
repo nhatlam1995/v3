@@ -5,14 +5,13 @@ manifest:
     - name: zmkfirmware
       url-base: https://github.com
     - name: englmaxi
-      url-base: https://github.com
+      url-base: https://github.com/englmaxi
   projects:
     - name: zmk
       remote: zmkfirmware
       import: app/west.yml
     - name: zmk-nice-oled
       remote: englmaxi
-      repo-path: englmaxi/zmk-nice-oled
-      revision: main
+      revision: master
   self:
       path: config
