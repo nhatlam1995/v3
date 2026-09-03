@@ -52,7 +52,7 @@
 &i2c0 {
     status = "okay";
     compatible = "nordic,nrf-twi";
-    clock-frequency = <400000>; /* Đẩy tốc độ I2C lên 400kHz (Fast Mode) cho mượt */
+    clock-frequency = <400000>; /* Đẩy tốc độ I2C lên 400kHz cho mượt */
     pinctrl-0 = <&i2c0_default>;
     pinctrl-1 = <&i2c0_sleep>;
     pinctrl-names = "default", "sleep";
@@ -70,8 +70,6 @@
         com-invdir;
         com-sequential;
         prechargep = <0x22>;
-        oscillator-freq = <0x50>; /* Tương thích tốt hơn với các dòng chip OLED clone phổ thông */
-        softreset-on;             /* Tự động reset và xóa sạch rác RAM khi khởi động */
     };
 };
 
