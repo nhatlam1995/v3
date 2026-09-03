@@ -68,6 +68,7 @@
         multiplex-ratio = <31>;
         segment-remap;
         com-sequential; /* Sử dụng quét tuần tự thay vì đảo hướng */
+        prechargep = <0x22>; /* Thuộc tính bắt buộc của driver */
     };
 };
 
