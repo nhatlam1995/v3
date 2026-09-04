@@ -67,10 +67,13 @@
         page-offset = <0>;
         display-offset = <0>;
         multiplex-ratio = <31>;
-        segment-remap;
-        com-sequential; /* Đổi về kiểu quét tuần tự chuẩn cho màn 128x32 phổ thông */
+        
+        /* Cấu hình thử nghiệm thay thế nếu cấu hình chuẩn bị lỗi */
+        segment-remap;          /* Giữ nguyên remap ngang */
+        com-alt;                /* ĐỔI SANG: Kiểu quét thay thế (thay vì com-sequential) */
+        com-invdir;             /* ĐỔI SANG: Đảo ngược hướng quét COM (quét từ dưới lên) */
+        
         prechargep = <0x22>;
-        /* Đã xóa bỏ dòng inversion-on và com-invdir gây nhiễu màu/rác màn hình */
     };
 };
 
