@@ -49,18 +49,24 @@
     };
 };
 
-&pro_micro_i2c {
+/* SỬA LỖI: Gán trực tiếp cấu hình vào &i2c0 và liên kết pinctrl chân vật lý */
+&i2c0 {
     status = "okay";
+    compatible = "nordic,nrf-twi";
+    clock-frequency = <100000>; /* Hạ tốc độ để chống nhiễu dây handwired */
+    pinctrl-0 = <&i2c0_default>;
+    pinctrl-1 = <&i2c0_sleep>;
+    pinctrl-names = "default", "sleep";
 
     oled: ssd1306@3c {
         compatible = "solomon,ssd1306fb";
         reg = <0x3c>;
         width = <128>;
-        height = <64>;
+        height = <32>;           /* SỬA LỖI: Đúng chuẩn độ phân giải màn 0.91 inch */
         segment-offset = <0>;
         page-offset = <0>;
         display-offset = <0>;
-        multiplex-ratio = <63>;
+        multiplex-ratio = <31>;   /* SỬA LỖI: Đúng số lượng dòng quét màn 128x32 */
         segment-remap;
         com-invdir;
         inversion-on;
