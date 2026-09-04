@@ -67,12 +67,8 @@
         page-offset = <0>;
         display-offset = <0>;
         multiplex-ratio = <31>;
-        
-        /* Cấu hình thử nghiệm thay thế nếu cấu hình chuẩn bị lỗi */
-        segment-remap;          /* Giữ nguyên remap ngang */
-        com-alt;                /* ĐỔI SANG: Kiểu quét thay thế (thay vì com-sequential) */
-        com-invdir;             /* ĐỔI SANG: Đảo ngược hướng quét COM (quét từ dưới lên) */
-        
+        segment-remap;
+        com-sequential;
         prechargep = <0x22>;
     };
 };
